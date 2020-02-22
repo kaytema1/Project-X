@@ -1,0 +1,2 @@
+module MaleMeasurementsHelper
+end

@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Female Measurements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bust</th>
+      <th>Waist</th>
+      <th>Hip</th>
+      <th>Back waist</th>
+      <th>Crotch</th>
+      <th>Arm width</th>
+      <th>Arm length</th>
+      <th>Height</th>
+      <th>Back</th>
+      <th>Trouser length</th>
+      <th>Apex to apex</th>
+      <th>Shoulder to apex</th>
+      <th>Note</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @female_measurements.each do |female_measurement| %>
+      <tr>
+        <td><%= female_measurement.bust %></td>
+        <td><%= female_measurement.waist %></td>
+        <td><%= female_measurement.hip %></td>
+        <td><%= female_measurement.back_waist %></td>
+        <td><%= female_measurement.crotch %></td>
+        <td><%= female_measurement.arm_width %></td>
+        <td><%= female_measurement.arm_length %></td>
+        <td><%= female_measurement.height %></td>
+        <td><%= female_measurement.back %></td>
+        <td><%= female_measurement.trouser_length %></td>
+        <td><%= female_measurement.apex_to_apex %></td>
+        <td><%= female_measurement.shoulder_to_apex %></td>
+        <td><%= female_measurement.note %></td>
+        <td><%= female_measurement.user %></td>
+        <td><%= link_to 'Show', female_measurement %></td>
+        <td><%= link_to 'Edit', edit_female_measurement_path(female_measurement) %></td>
+        <td><%= link_to 'Destroy', female_measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Female Measurement', new_female_measurement_path %>

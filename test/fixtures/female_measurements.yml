@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  bust: 1
+  waist: 1
+  hip: 1
+  back_waist: 1
+  crotch: 1
+  arm_width: 1
+  arm_length: 1
+  height: 1
+  back: 1
+  trouser_length: 1
+  apex_to_apex: 1
+  shoulder_to_apex: 1
+  note: MyText
+  user: one
+
+two:
+  bust: 1
+  waist: 1
+  hip: 1
+  back_waist: 1
+  crotch: 1
+  arm_width: 1
+  arm_length: 1
+  height: 1
+  back: 1
+  trouser_length: 1
+  apex_to_apex: 1
+  shoulder_to_apex: 1
+  note: MyText
+  user: two

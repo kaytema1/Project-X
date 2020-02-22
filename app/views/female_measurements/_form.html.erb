@@ -1,0 +1,87 @@
+<%= form_with(model: female_measurement, local: true) do |form| %>
+  <% if female_measurement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(female_measurement.errors.count, "error") %> prohibited this female_measurement from being saved:</h2>
+
+      <ul>
+      <% female_measurement.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :bust %>
+    <%= form.number_field :bust %>
+  </div>
+
+  <div class="field">
+    <%= form.label :waist %>
+    <%= form.number_field :waist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :hip %>
+    <%= form.number_field :hip %>
+  </div>
+
+  <div class="field">
+    <%= form.label :back_waist %>
+    <%= form.number_field :back_waist %>
+  </div>
+
+  <div class="field">
+    <%= form.label :crotch %>
+    <%= form.number_field :crotch %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arm_width %>
+    <%= form.number_field :arm_width %>
+  </div>
+
+  <div class="field">
+    <%= form.label :arm_length %>
+    <%= form.number_field :arm_length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :height %>
+    <%= form.number_field :height %>
+  </div>
+
+  <div class="field">
+    <%= form.label :back %>
+    <%= form.number_field :back %>
+  </div>
+
+  <div class="field">
+    <%= form.label :trouser_length %>
+    <%= form.number_field :trouser_length %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apex_to_apex %>
+    <%= form.number_field :apex_to_apex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shoulder_to_apex %>
+    <%= form.number_field :shoulder_to_apex %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
