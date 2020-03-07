@@ -1,74 +1,45 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = FemaleMeasurement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>Bust:</strong>
-  <%= @female_measurement.bust %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:bust) %>:</strong></dt>
+  <dd><%= @female_measurement.bust %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:waist) %>:</strong></dt>
+  <dd><%= @female_measurement.waist %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:hip) %>:</strong></dt>
+  <dd><%= @female_measurement.hip %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:back_waist) %>:</strong></dt>
+  <dd><%= @female_measurement.back_waist %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:crotch) %>:</strong></dt>
+  <dd><%= @female_measurement.crotch %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:arm_width) %>:</strong></dt>
+  <dd><%= @female_measurement.arm_width %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:arm_length) %>:</strong></dt>
+  <dd><%= @female_measurement.arm_length %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:height) %>:</strong></dt>
+  <dd><%= @female_measurement.height %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:back) %>:</strong></dt>
+  <dd><%= @female_measurement.back %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:trouser_length) %>:</strong></dt>
+  <dd><%= @female_measurement.trouser_length %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:apex_to_apex) %>:</strong></dt>
+  <dd><%= @female_measurement.apex_to_apex %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:shoulder_to_apex) %>:</strong></dt>
+  <dd><%= @female_measurement.shoulder_to_apex %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:note) %>:</strong></dt>
+  <dd><%= @female_measurement.note %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @female_measurement.user_id %></dd>
+</dl>
 
-<p>
-  <strong>Waist:</strong>
-  <%= @female_measurement.waist %>
-</p>
-
-<p>
-  <strong>Hip:</strong>
-  <%= @female_measurement.hip %>
-</p>
-
-<p>
-  <strong>Back waist:</strong>
-  <%= @female_measurement.back_waist %>
-</p>
-
-<p>
-  <strong>Crotch:</strong>
-  <%= @female_measurement.crotch %>
-</p>
-
-<p>
-  <strong>Arm width:</strong>
-  <%= @female_measurement.arm_width %>
-</p>
-
-<p>
-  <strong>Arm length:</strong>
-  <%= @female_measurement.arm_length %>
-</p>
-
-<p>
-  <strong>Height:</strong>
-  <%= @female_measurement.height %>
-</p>
-
-<p>
-  <strong>Back:</strong>
-  <%= @female_measurement.back %>
-</p>
-
-<p>
-  <strong>Trouser length:</strong>
-  <%= @female_measurement.trouser_length %>
-</p>
-
-<p>
-  <strong>Apex to apex:</strong>
-  <%= @female_measurement.apex_to_apex %>
-</p>
-
-<p>
-  <strong>Shoulder to apex:</strong>
-  <%= @female_measurement.shoulder_to_apex %>
-</p>
-
-<p>
-  <strong>Note:</strong>
-  <%= @female_measurement.note %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @female_measurement.user %>
-</p>
-
-<%= link_to 'Edit', edit_female_measurement_path(@female_measurement) %> |
-<%= link_to 'Back', female_measurements_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              female_measurements_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_female_measurement_path(@female_measurement), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              female_measurement_path(@female_measurement),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

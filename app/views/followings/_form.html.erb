@@ -1,27 +1,41 @@
-<%= form_with(model: following, local: true) do |form| %>
-  <% if following.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(following.errors.count, "error") %> prohibited this following from being saved:</h2>
+<%= form_for @following, :html => { :class => "form-horizontal following" } do |f| %>
 
-      <ul>
-      <% following.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @following.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@following.errors.count, "error") %> prohibited this following from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @following.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :clothing_line_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :clothing_line_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:clothing_line_id) %>
   </div>
 
-  <div class="field">
-    <%= form.label :clothing_line_id %>
-    <%= form.text_field :clothing_line_id %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                followings_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

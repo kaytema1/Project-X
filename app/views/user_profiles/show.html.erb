@@ -1,54 +1,37 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = UserProfile -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.titleize %></h1>
+</div>
 
-<p>
-  <strong>User type:</strong>
-  <%= @user_profile.user_type %>
-</p>
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:user_type) %>:</strong></dt>
+  <dd><%= @user_profile.user_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:about_me) %>:</strong></dt>
+  <dd><%= @user_profile.about_me %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:gender) %>:</strong></dt>
+  <dd><%= @user_profile.gender %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:unit_of_measure) %>:</strong></dt>
+  <dd><%= @user_profile.unit_of_measure %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:address) %>:</strong></dt>
+  <dd><%= @user_profile.address %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @user_profile.city %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country) %>:</strong></dt>
+  <dd><%= @user_profile.country %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:country_code) %>:</strong></dt>
+  <dd><%= @user_profile.country_code %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:phone_number) %>:</strong></dt>
+  <dd><%= @user_profile.phone_number %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_id) %>:</strong></dt>
+  <dd><%= @user_profile.user_id %></dd>
+</dl>
 
-<p>
-  <strong>About me:</strong>
-  <%= @user_profile.about_me %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @user_profile.gender %>
-</p>
-
-<p>
-  <strong>Unit of measure:</strong>
-  <%= @user_profile.unit_of_measure %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user_profile.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @user_profile.city %>
-</p>
-
-<p>
-  <strong>Country:</strong>
-  <%= @user_profile.country %>
-</p>
-
-<p>
-  <strong>Country code:</strong>
-  <%= @user_profile.country_code %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @user_profile.phone %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @user_profile.user %>
-</p>
-
-<%= link_to 'Edit', edit_user_profile_path(@user_profile) %> |
-<%= link_to 'Back', user_profiles_path %>
+<%= link_to t('.back', :default => t("helpers.links.back")),
+              user_profiles_path, :class => 'btn btn-default'  %>
+<%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_user_profile_path(@user_profile), :class => 'btn btn-default' %>
+<%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              user_profile_path(@user_profile),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>

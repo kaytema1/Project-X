@@ -1,82 +1,118 @@
-<%= form_with(model: male_measurement, local: true) do |form| %>
-  <% if male_measurement.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(male_measurement.errors.count, "error") %> prohibited this male_measurement from being saved:</h2>
+<%= form_for @male_measurement, :html => { :class => "form-horizontal male_measurement" } do |f| %>
 
-      <ul>
-      <% male_measurement.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+  <% if @male_measurement.errors.any? %>
+    <div id="error_expl" class="panel panel-danger">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= pluralize(@male_measurement.errors.count, "error") %> prohibited this male_measurement from being saved:</h3>
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @male_measurement.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :back_width %>
-    <%= form.number_field :back_width %>
+  <div class="form-group">
+    <%= f.label :back_width, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :back_width, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:back_width) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :arm_circumference, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :arm_circumference, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:arm_circumference) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :arm_length, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :arm_length, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:arm_length) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :chest_width, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :chest_width, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:chest_width) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hip, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :hip, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:hip) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :hip_length, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :hip_length, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:hip_length) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :waist, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :waist, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:waist) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :tie, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :tie, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:tie) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :knee, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :knee, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:knee) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :around_ankle_bar, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :around_ankle_bar, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:around_ankle_bar) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :length, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :length, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:length) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :note, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :note, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:note) %>
+  </div>
+  <div class="form-group">
+    <%= f.label :user_id, :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.text_field :user_id, :class => 'form-control' %>
+    </div>
+    <%=f.error_span(:user_id) %>
   </div>
 
-  <div class="field">
-    <%= form.label :arm_circumference %>
-    <%= form.number_field :arm_circumference %>
+  <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                male_measurements_path, :class => 'btn btn-default' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :arm_length %>
-    <%= form.number_field :arm_length %>
-  </div>
-
-  <div class="field">
-    <%= form.label :chest_width %>
-    <%= form.number_field :chest_width %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hip %>
-    <%= form.number_field :hip %>
-  </div>
-
-  <div class="field">
-    <%= form.label :hip_length %>
-    <%= form.number_field :hip_length %>
-  </div>
-
-  <div class="field">
-    <%= form.label :waist %>
-    <%= form.number_field :waist %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tie %>
-    <%= form.number_field :tie %>
-  </div>
-
-  <div class="field">
-    <%= form.label :knee %>
-    <%= form.number_field :knee %>
-  </div>
-
-  <div class="field">
-    <%= form.label :around_ankle_bar %>
-    <%= form.number_field :around_ankle_bar %>
-  </div>
-
-  <div class="field">
-    <%= form.label :length %>
-    <%= form.number_field :length %>
-  </div>
-
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

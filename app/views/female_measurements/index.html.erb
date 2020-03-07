@@ -1,31 +1,33 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Female Measurements</h1>
-
-<table>
+<%- model_class = FemaleMeasurement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Bust</th>
-      <th>Waist</th>
-      <th>Hip</th>
-      <th>Back waist</th>
-      <th>Crotch</th>
-      <th>Arm width</th>
-      <th>Arm length</th>
-      <th>Height</th>
-      <th>Back</th>
-      <th>Trouser length</th>
-      <th>Apex to apex</th>
-      <th>Shoulder to apex</th>
-      <th>Note</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:bust) %></th>
+      <th><%= model_class.human_attribute_name(:waist) %></th>
+      <th><%= model_class.human_attribute_name(:hip) %></th>
+      <th><%= model_class.human_attribute_name(:back_waist) %></th>
+      <th><%= model_class.human_attribute_name(:crotch) %></th>
+      <th><%= model_class.human_attribute_name(:arm_width) %></th>
+      <th><%= model_class.human_attribute_name(:arm_length) %></th>
+      <th><%= model_class.human_attribute_name(:height) %></th>
+      <th><%= model_class.human_attribute_name(:back) %></th>
+      <th><%= model_class.human_attribute_name(:trouser_length) %></th>
+      <th><%= model_class.human_attribute_name(:apex_to_apex) %></th>
+      <th><%= model_class.human_attribute_name(:shoulder_to_apex) %></th>
+      <th><%= model_class.human_attribute_name(:note) %></th>
+      <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @female_measurements.each do |female_measurement| %>
       <tr>
+        <td><%= link_to female_measurement.id, female_measurement_path(female_measurement) %></td>
         <td><%= female_measurement.bust %></td>
         <td><%= female_measurement.waist %></td>
         <td><%= female_measurement.hip %></td>
@@ -39,15 +41,24 @@
         <td><%= female_measurement.apex_to_apex %></td>
         <td><%= female_measurement.shoulder_to_apex %></td>
         <td><%= female_measurement.note %></td>
-        <td><%= female_measurement.user %></td>
-        <td><%= link_to 'Show', female_measurement %></td>
-        <td><%= link_to 'Edit', edit_female_measurement_path(female_measurement) %></td>
-        <td><%= link_to 'Destroy', female_measurement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= female_measurement.user_id %></td>
+        <td><%=l female_measurement.created_at %></td>
+        <td>
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+                      female_measurement_path(female_measurement), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_female_measurement_path(female_measurement), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      female_measurement_path(female_measurement),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Female Measurement', new_female_measurement_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_female_measurement_path,
+            :class => 'btn btn-primary' %>

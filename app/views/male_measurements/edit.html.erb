@@ -1,6 +1,5 @@
-<h1>Editing Male Measurement</h1>
-
-<%= render 'form', male_measurement: @male_measurement %>
-
-<%= link_to 'Show', @male_measurement %> |
-<%= link_to 'Back', male_measurements_path %>
+<%- model_class = MaleMeasurement -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>

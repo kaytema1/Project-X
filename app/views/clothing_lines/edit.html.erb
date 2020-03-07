@@ -1,6 +1,5 @@
-<h1>Editing Clothing Line</h1>
-
-<%= render 'form', clothing_line: @clothing_line %>
-
-<%= link_to 'Show', @clothing_line %> |
-<%= link_to 'Back', clothing_lines_path %>
+<%- model_class = ClothingLine -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
+</div>
+<%= render :partial => 'form' %>
